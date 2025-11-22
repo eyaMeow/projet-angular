@@ -1,0 +1,19 @@
+<header class="bg-primary text-white py-3 shadow-sm">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h3 class="mb-0 fw-bold">Aura</h3>
+    <button class="btn btn-outline-light" (click)="auth.logout(); router.navigate(['/login'])">
+      Logout
+    </button>
+  </div>
+</header>
+<br />
+
+<div class="container">
+  <nav class="nav nav-pills mb-4">
+    <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">Dashboard</a>
+    <a routerLink="/users" routerLinkActive="active" class="nav-link">Users</a>
+    <a routerLink="/settings" routerLinkActive="active" class="nav-link">Settings</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>

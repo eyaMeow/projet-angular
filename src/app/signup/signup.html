@@ -1,0 +1,95 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+  <div class="card shadow-lg border-0" style="max-width: 480px; width: 100%">
+    <div class="card-body p-5">
+      <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">Join Aura</h1>
+        <p class="text-muted">Create your account in seconds</p>
+      </div>
+
+      @if (success) {
+      <div class="text-center py-5">
+        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem"></i>
+        <h3 class="mt-4 text-success">Welcome aboard!</h3>
+        <p class="text-muted">Redirecting to dashboard...</p>
+      </div>
+      } @else {
+
+      <form (ngSubmit)="onSubmit()" novalidate>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Full Name</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            [(ngModel)]="user.name"
+            name="name"
+            placeholder="John Doe"
+            required
+            [class.is-invalid]="submitted && !user.name"
+          />
+          @if (submitted && !user.name) {
+          <div class="invalid-feedback">Name is required</div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Email</label>
+          <input
+            type="email"
+            class="form-control form-control-lg"
+            [(ngModel)]="user.email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            [class.is-invalid]="submitted && !user.email"
+          />
+          @if (submitted && !user.email) {
+          <div class="invalid-feedback">Valid email required</div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Password</label>
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            [(ngModel)]="user.password"
+            name="password"
+            placeholder="••••••••"
+            required
+            minlength="6"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            [(ngModel)]="user.confirmPassword"
+            name="confirmPassword"
+            placeholder="••••••••"
+            [class.is-invalid]="passwordMismatch"
+          />
+          @if (passwordMismatch) {
+          <div class="invalid-feedback">Passwords don't match</div>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">Create Account</button>
+      </form>
+
+      <div class="text-center mt-4">
+        <small class="text-muted">Already have an account?</small>
+        <button
+          type="button"
+          class="btn btn-link text-primary fw-bold p-0 ms-2"
+          (click)="router.navigate(['/login'])"
+        >
+          Sign In
+        </button>
+      </div>
+
+      }
+    </div>
+  </div>
+</div>

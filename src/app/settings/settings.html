@@ -1,0 +1,52 @@
+<div class="container py-4">
+  <h1>Settings</h1>
+
+  <div class="row g-4 mt-3">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header">Profile Information</div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Display Name</label>
+              <input class="form-control form-control-lg" [(ngModel)]="name" name="name" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input
+                class="form-control form-control-lg"
+                [(ngModel)]="email"
+                name="email"
+                type="email"
+              />
+            </div>
+            <button class="btn btn-success btn-lg">Save Changes</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-header">Appearance</div>
+        <div class="card-body">
+          <div class="form-check form-switch form-switch-lg">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="darkMode"
+              [(ngModel)]="darkMode"
+              name="darkMode"
+            />
+            <label class="form-check-label fs-5" for="darkMode">
+              Dark Mode ({{ darkMode() ? 'Enabled' : 'Disabled' }})
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 p-4 bg-light rounded">
+        <strong>Live Preview:</strong>
+        Name: {{ name() }} | Email: {{ email() }}
+      </div>
+    </div>
+  </div>
+</div>

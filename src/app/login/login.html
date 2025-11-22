@@ -1,0 +1,31 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+  <div class="card shadow-lg" style="max-width: 420px; width: 100%">
+    <div class="card-body p-5 text-center">
+      <h2 class="fw-bold mb-4">Login</h2>
+
+      <form (ngSubmit)="onSubmit()" novalidate>
+        <input
+          class="form-control form-control-lg mb-3"
+          [(ngModel)]="username"
+          name="u"
+          placeholder="admin"
+        />
+        <input
+          class="form-control form-control-lg mb-4"
+          [(ngModel)]="password"
+          name="p"
+          type="password"
+          placeholder="admin"
+        />
+        <button type="submit" class="btn btn-primary w-100 btn-lg">Login</button>
+      </form>
+
+      <!-- THIS BUTTON WORKS 100% -->
+      <div class="mt-4">
+        <button type="button" class="btn btn-success" (click)="goToSignup()">
+          Create New Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

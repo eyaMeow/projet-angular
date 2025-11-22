@@ -1,0 +1,32 @@
+<div class="container py-4">
+  <h1 class="mb-4">Your Feed</h1>
+
+  @for (post of posts(); track post.id) {
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <div class="d-flex align-items-center mb-3">
+        <img [src]="post.avatar" class="rounded-circle me-3" width="50" height="50" alt="avatar" />
+        <div>
+          <h6 class="mb-0">{{ post.author }}</h6>
+          <small class="text-muted">2 hours ago</small>
+        </div>
+      </div>
+
+      <p class="mb-3">{{ post.caption }}</p>
+
+      <img [src]="post.image" class="img-fluid rounded mb-3" alt="post" />
+
+      <div class="d-flex align-items-center justify-content-between">
+        <button
+          class="btn btn-outline-danger d-flex align-items-center gap-2"
+          (click)="toggleLike(post)"
+        >
+          <i class="bi" [class.bi-heart-fill]="post.liked" [class.bi-heart]="!post.liked"></i>
+          <span>{{ post.likes }} Likes</span>
+        </button>
+        <small class="text-muted">42 comments</small>
+      </div>
+    </div>
+  </div>
+  }
+</div>
